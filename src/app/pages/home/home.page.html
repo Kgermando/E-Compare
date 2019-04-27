@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      E-Compare
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openCompare()">
+        <ion-badge></ion-badge>
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+  <div *ngFor="let compare of compares" class="category-block">
+
+    <ion-row no-padding class="category-banner" *ngIf="compare.market">
+      <ion-col text-left button tappable (click)="compare.expanded = !compare.expanded" align-self-center >
+         {{ compare.market }}
+      </ion-col>
+    </ion-row>
+ 
+    <ion-slides [options]="sliderConfig">
+      <ion-slide>
+        <div *ngIf="compare.expanded">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                {{ compare.name }} - {{ compare.price }} FC
+              </ion-card-title>
+              <ion-card-content>
+                <ion-thumbnail slot="start">
+                   <ion-img style="max-with:600px" *ngIf="compare.photo" [src]="compare.photo"></ion-img>
+                </ion-thumbnail>             
+                <ion-button expand="full">Add to Compare</ion-button>
+              </ion-card-content>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+</ion-content>

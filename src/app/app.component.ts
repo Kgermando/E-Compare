@@ -7,24 +7,50 @@ import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styleUrls: ['./app.style.scss'],
 })
 export class AppComponent {
   public appPages = [
     {
-      title: 'Accueil',
+      title: 'E-Compare',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'Liste des Entreprises',
-      url: '/list',
-      icon: 'list'
+      title: 'E-Commerce',
+      children: [
+        {
+          title: 'Super-marché',
+          url: '/super-marche',
+          icon: 'cart'
+        },
+      ]
     },
     {
-      title: 'Form Compare',
-      url: '/forms-compare',
-      icon: 'add-circle-outline'
+      title: 'Forms',
+      children: [
+        {
+          title: 'Form Zando',
+          url: '/forms-zando',
+          icon: 'add-circle-outline'
+        },
+        {
+          title: 'Form Gambela',
+          url: '/forms-gambela',
+          icon: 'add-circle-outline'
+        },
+        {
+          title: 'Form Liberte',
+          url: '/forms-liberte',
+          icon: 'add-circle-outline'
+        },
+        {
+          title: 'Form Zigida',
+          url: '/forms-zigida',
+          icon: 'add-circle-outline'
+        },
+      ]
     }
   ];
 
@@ -34,6 +60,7 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    this.platform.backButton.subscribe(() => {});
 
     const config = {
       apiKey: 'AIzaSyCCmysmYqQPgLiTPWD_Rsyh37JmmKGpggU',

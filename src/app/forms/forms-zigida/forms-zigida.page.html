@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+     <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Forms-Zigida</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="zigidaForm" (ngSubmit)="onSaveZigida()">
+
+    <ion-item>
+      <ion-label position="floating" for="name">Nom du Produit</ion-label>
+      <ion-input type="text" id="name" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="price">Prix</ion-label>
+      <ion-input type="number" id="price" formControlName="price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" for="photo">Photo</ion-label>
+      <ion-input type="file" id="photo" (change)="detectFiles($event)" accept="image/*"></ion-input>
+      <p color="primary" *ngIf="fileUploaded">Fichier chargé !</p>
+    </ion-item>
+
+    <ion-button expand="block" [disabled]="zigidaForm.invalid || fileIsUploading" type="submit">Enregister</ion-button>
+
+</form>
+
+</ion-content>
+

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Grand marché Zando</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+      <!-- Animated Searchbar -->
+    <ion-searchbar animated></ion-searchbar>
+
+    <ion-row no-padding class="category-banner-zando">
+      <ion-col text-left button tappable  align-self-center >
+        MARCHE ZANDO
+      </ion-col>
+    </ion-row>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide > 
+         <div *ngFor="let zando of zandos" class="">
+           <ion-card>
+              <ion-card-header>
+                  <ion-card-subtitle>{{ zando.name }} </ion-card-subtitle>
+                  <ion-card-title> {{ zando.price }} FC </ion-card-title>
+                <ion-card-content>
+                  <img [src]="zando.photo" style="width:500px;height:200px">
+                  <ion-button expand="full" color="success" >Add to Compare</ion-button>
+                </ion-card-content>
+              </ion-card-header>
+            </ion-card>
+          </div>
+      </ion-slide>
+    </ion-slides>
+
+
+</ion-content>

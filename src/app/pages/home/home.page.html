@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,7 +8,7 @@
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openCompare()">
-        <ion-badge></ion-badge>
+         <ion-badge *ngIf="zandos.length > 0">{{ zandos.length }}</ion-badge>
         <ion-icon slot="icon-only" name="cart"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -16,34 +16,102 @@
 </ion-header>
 
 <ion-content>
-   
-  <div *ngFor="let compare of compares" class="category-block">
+  
+      <!-- Animated Searchbar -->
+    <ion-searchbar animated></ion-searchbar>
 
-    <ion-row no-padding class="category-banner" *ngIf="compare.market">
-      <ion-col text-left button tappable (click)="compare.expanded = !compare.expanded" align-self-center >
-         {{ compare.market }}
+    <ion-row no-padding class="category-banner-zando">
+      <ion-col text-left button tappable  align-self-center >
+        MARCHE ZANDO
       </ion-col>
     </ion-row>
- 
     <ion-slides [options]="sliderConfig">
-      <ion-slide>
-        <div *ngIf="compare.expanded">
-          <ion-card>
+      <ion-slide *ngFor="let zando of zandos"> 
+      <ion-card>
             <ion-card-header>
+             <ion-card-subtitle>{{ zando.name }} </ion-card-subtitle>
               <ion-card-title>
-                {{ compare.name }} - {{ compare.price }} FC
+                {{ zando.price }}
               </ion-card-title>
               <ion-card-content>
-                <ion-thumbnail slot="start">
-                   <ion-img style="max-with:600px" *ngIf="compare.photo" [src]="compare.photo"></ion-img>
-                </ion-thumbnail>             
-                <ion-button expand="full">Add to Compare</ion-button>
+                <img [src]="zando.photo" *ngIf="zando.photo" style="width:400px;height:150px">
+                <ion-button expand="full" color="success" (click)="addZandoToCart(zandos)">Add to Compare</ion-button>
               </ion-card-content>
             </ion-card-header>
           </ion-card>
-        </div>
       </ion-slide>
     </ion-slides>
-  </div>
+
+
+    <ion-row no-padding class="category-banner-gambela">
+      <ion-col text-left button tappable  align-self-center >
+        MARCHE GAMBELA
+      </ion-col>
+    </ion-row>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let gambela of gambelas"> 
+          <ion-card>
+            <ion-card-header>
+             <ion-card-subtitle>{{ gambela.name }} </ion-card-subtitle>
+              <ion-card-title>
+                {{ gambela.price }}
+              </ion-card-title>
+              <ion-card-content>
+                <img [src]="gambela.photo" *ngIf="gambela.photo" style="width:400px;height:150px">
+                <ion-button expand="full" color="success">Add to Compare</ion-button>
+              </ion-card-content>
+            </ion-card-header>
+          </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+
+    <ion-row no-padding class="category-banner-liberte">
+    <ion-col text-left button tappable  align-self-center >
+      MARCHE LIBERTE
+    </ion-col>
+    </ion-row>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let liberte of libertes"> 
+          <ion-card>
+            <ion-card-header>
+             <ion-card-subtitle>{{ liberte.name }} </ion-card-subtitle>
+              <ion-card-title>
+                {{ liberte.price }}
+              </ion-card-title>
+              <ion-card-content>
+                <img [src]="liberte.photo" *ngIf="liberte.photo" style="width:400px;height:150px">
+                <ion-button expand="full" color="success">Add to Compare</ion-button>
+              </ion-card-content>
+            </ion-card-header>
+          </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+
+    <ion-row no-padding class="category-banner-zigida">
+      <ion-col text-left button tappable  align-self-center >
+        MARCHE ZIGIDA
+      </ion-col>
+    </ion-row>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let zigida of zigidas"> 
+            <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>
+              {{ zigida.name }}
+              </ion-card-subtitle>
+              <ion-card-title>
+                {{ zigida.price }}
+              </ion-card-title>
+              <ion-card-content>
+                <img [src]="zigida.photo" *ngIf="zigida.photo" style="width:400px;height:150px">
+                <ion-button expand="full" color="success">Add to Compare</ion-button>
+              </ion-card-content>
+            </ion-card-header>
+          </ion-card>
+      </ion-slide>
+    </ion-slides>
+
 
 </ion-content>

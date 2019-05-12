@@ -17,3 +17,32 @@ ion-badge {
   padding: 10px;
   font-weight: 500;
 }
+
+.category-banner-zando {
+  border-left: 8px solid var(--ion-color-primary);
+  background: var(--ion-color-light);
+  height: 40px;
+  padding: 10px;
+  font-weight: 500;
+}
+.category-banner-gambela {
+  border-left: 8px solid var(--ion-color-tertiary);
+  background: var(--ion-color-light);
+  height: 40px;
+  padding: 10px;
+  font-weight: 500;
+}
+.category-banner-liberte {
+  border-left: 8px solid var(--ion-color-secondary);
+  background: var(--ion-color-light);
+  height: 40px;
+  padding: 10px;
+  font-weight: 500;
+}
+.category-banner-zigida {
+  border-left: 8px solid var(--ion-color-warning);
+  background: var(--ion-color-light);
+  height: 40px;
+  padding: 10px;
+  font-weight: 500;
+}

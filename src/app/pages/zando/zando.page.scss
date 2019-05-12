@@ -1,0 +1,41 @@
+ion-badge {
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 100%;
+  }
+  
+  .category-block {
+    margin-bottom: 4px;
+  }
+  
+  .category-banner {
+    border-left: 8px solid var(--ion-color-secondary);
+    background: var(--ion-color-light);
+    height: 40px;
+    padding: 10px;
+    font-weight: 500;
+  }
+  
+  .category-banner-zando {
+    border-left: 8px solid var(--ion-color-primary);
+    background: var(--ion-color-light);
+    height: 40px;
+    padding: 10px;
+    font-weight: 500;
+  }
+  .category-banner-gambela {
+    border-left: 8px solid var(--ion-color-tertiary);
+    background: var(--ion-color-light);
+    height: 40px;
+    padding: 10px;
+    font-weight: 500;
+  }
+  .category-banner-liberte {
+    border-left: 8px solid var(--ion-color-secondary);
+    background: var(--ion-color-light);
+    height: 40px;
+    padding: 10px;
+    font-weight: 500;
+  }
